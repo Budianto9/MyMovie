@@ -1,8 +1,8 @@
-package com.example.mymovie.core.data.remote.datasource
+package com.example.mymovie.core.data.source.remote.response.base
 
 import com.google.gson.annotations.SerializedName
 
-data class BaseResponse(
+open class BaseResponse<Item>(
 
 	@field:SerializedName("page")
 	val page: Int? = null,
@@ -11,7 +11,7 @@ data class BaseResponse(
 	val totalPages: Int? = null,
 
 	@field:SerializedName("results")
-	val results: List<Any?>? = null,
+	val results: List<Item>? = null,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int? = null
