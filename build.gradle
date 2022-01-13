@@ -31,6 +31,8 @@ buildscript {
     ext.rxjava3_retrofit_adapter_version = "3.0.0"
     ext.lifecycle_version = "2.2.0"
 
+    ext.paging_version = "3.1.0"
+
     repositories {
         google()
         mavenCentral()
