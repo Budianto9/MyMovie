@@ -7,6 +7,7 @@
     tools:context=".main.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
