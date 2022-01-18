@@ -6,13 +6,15 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="400dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,9 +33,11 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="Ghostbusters"
-                android:textStyle="bold"
                 android:textSize="12dp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -43,15 +47,13 @@
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:lines="3"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisi tortor, bibendum vel interdum vel, iaculis sed tortor. Quisque in mauris eleifend, iaculis magna non, finibus ligula. Praesent finibus mollis efficitur. Cras pulvinar non orci sit amet blandit. Vivamus lorem libero, consectetur laoreet faucibus hendrerit, ultrices at nibh. Nunc maximus cursus ex, eget malesuada libero. Curabitur bibendum, lacus quis congue tincidunt, mi lorem condimentum nunc, a tempus eros neque vel nibh. In eu magna est. Vestibulum vel sapien in arcu consequat consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec a posuere nunc, vitae suscipit nisi. Donec arcu augue, pharetra blandit nunc nec, laoreet faucibus risus. Mauris tincidunt quis metus et tristique."
                 android:textSize="8dp"
-                android:lines="3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
