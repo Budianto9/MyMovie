@@ -6,7 +6,8 @@ import com.example.mymovie.core.data.source.remote.network.Api
 import com.example.mymovie.core.data.source.remote.response.MovieResponse
 
 class MovieDataSource(
-    private val apiService: Api
+    private val apiService: Api,
+    private val apiKey: String,
 ) : PagingSource<Int, MovieResponse>() {
 
     // The refresh key is used for subsequent refresh calls to PagingSource.load after the initial load
@@ -25,22 +26,22 @@ class MovieDataSource(
         val position = params.key ?: startPage
 
         return try {
-            val response = apiService.getPopularMovies(position)
+            val response = apiService.getPopularMovies(apiKey, position)
 
             if (response.isSuccessful) {
                 if (response.body() != null) {
                     val body = response.body()!!
 
-                    val nextKey = if (body.value.isEmpty())
+                    val nextKey = if (body.results.isEmpty())
                         null
                     else
                     // initial load size = 3 * NETWORK_PAGE_SIZE
                     // ensure we're not requesting duplicating items, at the 2nd request
-                        position + body.value.size
+                        position + body.results.size
 
                     if (!body.error) {
                         LoadResult.Page(
-                            data = body.value,
+                            data = body.results,
                             prevKey = if (position == startPage) null else position - 1,
                             nextKey = nextKey
                         )
