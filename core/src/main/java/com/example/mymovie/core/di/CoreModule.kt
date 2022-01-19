@@ -23,7 +23,7 @@ val networkModule = module {
 
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
