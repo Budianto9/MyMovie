@@ -3,13 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
-        <entry key="..\:/ProjectIseng/app/src/main/res/layout/item_list_placeholder.xml" value="0.1796875" />
-        <entry key="..\:/ProjectIseng/app/src/main/res/layout/list_item_movie.xml" value="0.22" />
+        <entry key="..\:/PROJECT ANDROID PAK BUDI/app/src/main/res/layout/activity_detail_movie.xml" value="0.33" />
+        <entry key="..\:/PROJECT ANDROID PAK BUDI/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/PROJECT ANDROID PAK BUDI/app/src/main/res/layout/list_item_movie.xml" value="0.2812006319115324" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
