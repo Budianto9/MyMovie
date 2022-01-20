@@ -65,7 +65,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:lines="3"
-                    android:text="@{item}"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisi tortor, bibendum vel interdum vel, iaculis sed tortor. Quisque in mauris eleifend, iaculis magna non, finibus ligula. Praesent finibus mollis efficitur. Cras pulvinar non orci sit amet blandit. Vivamus lorem libero, consectetur laoreet faucibus hendrerit, ultrices at nibh. Nunc maximus cursus ex, eget malesuada libero. Curabitur bibendum, lacus quis congue tincidunt, mi lorem condimentum nunc, a tempus eros neque vel nibh. In eu magna est. Vestibulum vel sapien in arcu consequat consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec a posuere nunc, vitae suscipit nisi. Donec arcu augue, pharetra blandit nunc nec, laoreet faucibus risus. Mauris tincidunt quis metus et tristique."
                     android:textSize="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
