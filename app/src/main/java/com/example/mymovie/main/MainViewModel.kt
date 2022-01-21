@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 
 class MainViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
 
-    private val apiKey = BuildConfig.API_KEY
+    private val apiKey = BuildConfig.ApiKey
 
     fun getMoviePopular() : Flow<PagingData<MovieResponse>> =
         movieUseCase.getMoviePopularPage(apiKey).cachedIn(viewModelScope)

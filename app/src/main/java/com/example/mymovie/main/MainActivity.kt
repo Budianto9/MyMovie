@@ -21,31 +21,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initUi()
-        observeView()
     }
 
-    private fun initUi(){
-        movieAdapter = MovieAdapter()
-        binding.rvMovie.layoutManager = LinearLayoutManager(this)
-        binding.rvMovie.setHasFixedSize(true)
-        binding.rvMovie.adapter = movieAdapter
-
+//    private fun initUi(){
+//        movieAdapter = MovieAdapter()
+//        binding.rvMovie.layoutManager = LinearLayoutManager(this)
+//        binding.rvMovie.setHasFixedSize(true)
+//        binding.rvMovie.adapter = movieAdapter
+//
+//
+//    }
+//
+//    private fun observeView(){
 //        lifecycleScope.launchWhenCreated {
-//            movieAdapter.loadStateFlow.collect { state->
-//                when{
-//                    state.source
-//                }
+//            viewModel.getMoviePopular().distinctUntilChanged().collectLatest {
+//                movieAdapter.submitData(it)
 //            }
 //        }
-
-    }
-
-    private fun observeView(){
-        lifecycleScope.launchWhenCreated {
-            viewModel.getMoviePopular().distinctUntilChanged().collectLatest {
-                movieAdapter.submitData(it)
-            }
-        }
-    }
+//    }
 }
