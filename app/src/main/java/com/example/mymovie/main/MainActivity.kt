@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymovie.databinding.ActivityMainBinding
+import com.example.mymovie.util.ItemLoadingAdapter
 import com.kennyc.view.MultiStateView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -33,8 +34,11 @@ class MainActivity : AppCompatActivity() {
         movieAdapter = MovieAdapter()
         binding.rvMovie.layoutManager = LinearLayoutManager(this)
         binding.rvMovie.setHasFixedSize(true)
-        binding.rvMovie.adapter = movieAdapter
 
+        val footerLoadingAdapter = ItemLoadingAdapter{
+            movieAdapter.retry()
+        }
+        binding.rvMovie.adapter = movieAdapter.withLoadStateFooter(footerLoadingAdapter)
 
         lifecycleScope.launchWhenCreated {
             movieAdapter.loadStateFlow.collectLatest { state ->
