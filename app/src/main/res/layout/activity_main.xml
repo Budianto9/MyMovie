@@ -7,31 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMovie"
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/layoutState"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/list_item_movie">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:msv_loadingView="@layout/item_list_placeholder"
+        app:msv_errorView="@layout/error_state_layout"
+        app:msv_viewState="content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMovie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_item_movie" />
+    </com.kennyc.view.MultiStateView>
 
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/progress_bar"
+        android:id="@+id/proggerBarShimmer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shimmer_auto_start="true">
+        app:shimmer_auto_start="true"
+        android:visibility="gone">
 
         <ScrollView
             android:layout_width="match_parent"
