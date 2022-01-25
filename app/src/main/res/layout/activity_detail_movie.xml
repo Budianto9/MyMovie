@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Ghostbusters" />
+        android:src="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView5"
@@ -48,9 +48,9 @@
         android:layout_height="127dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/Ghostbusters" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView4"

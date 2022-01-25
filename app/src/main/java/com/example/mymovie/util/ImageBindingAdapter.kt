@@ -3,7 +3,7 @@ package com.example.mymovie.util
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.example.mymovie.util.constant.Constant
+import com.example.mymovie.core.util.Constant
 
 object ImageBindingAdapter {
 

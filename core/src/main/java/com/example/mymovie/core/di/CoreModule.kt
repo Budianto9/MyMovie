@@ -3,6 +3,7 @@ package com.example.mymovie.core.di
 import com.example.mymovie.core.data.repository.MovieRepository
 import com.example.mymovie.core.data.source.remote.network.Api
 import com.example.mymovie.core.domain.repository.IMovieRepository
+import com.example.mymovie.core.util.Constant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -23,7 +24,7 @@ val networkModule = module {
 
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

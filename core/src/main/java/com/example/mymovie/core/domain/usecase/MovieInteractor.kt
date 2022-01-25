@@ -4,7 +4,7 @@ import com.example.mymovie.core.domain.repository.IMovieRepository
 
 class MovieInteractor(
     private val movieRepository: IMovieRepository
-): MovieUseCase {
+) : MovieUseCase {
 
     override fun getMoviePopularPage(apiKey: String) =
         movieRepository.getMoviePopularPage(apiKey)
