@@ -22,7 +22,7 @@ class MovieDataSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieResponse> {
-        val startPage = 0
+        val startPage = 1
         val position = params.key ?: startPage
 
         return try {
@@ -37,16 +37,13 @@ class MovieDataSource(
                     else
                     // initial load size = 3 * NETWORK_PAGE_SIZE
                     // ensure we're not requesting duplicating items, at the 2nd request
-                        position + body.results.size
+                        position + 1
 
-                    if (!body.error) {
-                        LoadResult.Page(
-                            data = body.results,
-                            prevKey = if (position == startPage) null else position - 1,
-                            nextKey = nextKey
-                        )
-                    } else
-                        LoadResult.Error(Exception(body.message))
+                    LoadResult.Page(
+                        data = body.results,
+                        prevKey = if (position == startPage) null else position - 1,
+                        nextKey = nextKey
+                    )
                 } else
                     LoadResult.Error(Exception("Terjadi kesalahan"))
             } else

@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_detail_movie.xml" value="0.1" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/ProjectIseng/app/src/main/res/layout/error_state_layout.xml" value="0.1796875" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/item_list_placeholder.xml" value="0.1796875" />
-        <entry key="..\:/ProjectIseng/app/src/main/res/layout/list_item_movie.xml" value="0.22" />
+        <entry key="..\:/ProjectIseng/app/src/main/res/layout/list_item_movie.xml" value="0.4466666666666667" />
       </map>
     </option>
   </component>

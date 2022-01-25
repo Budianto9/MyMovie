@@ -14,7 +14,7 @@ class MovieRepository(
 ) : IMovieRepository {
     override fun getMoviePopularPage(apiKey: String): Flow<PagingData<MovieResponse>> {
         return Pager(
-            config = PagingConfig(pageSize = 20, enablePlaceholders = false),
+            config = PagingConfig(pageSize = 3, enablePlaceholders = false),
             pagingSourceFactory = {
                 MovieDataSource(apiService, apiKey)
             }
