@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymovie.core.data.source.remote.response.MovieResponse
 import com.example.mymovie.databinding.ListItemMovieBinding
 
-class MovieAdapter :
+class MovieAdapter(private val listener: ((MovieResponse) -> Unit)) :
     PagingDataAdapter<MovieResponse, MovieAdapter.MovieViewHolder>(movieDiffCallback){
 
     companion object {
@@ -44,6 +44,11 @@ class MovieAdapter :
             fun bindTo(item: MovieResponse){
                 binding.item = item
                 binding.executePendingBindings()
+
+
+                binding.cardView.setOnClickListener {
+                    listener.invoke(item)
+                }
             }
         }
 }

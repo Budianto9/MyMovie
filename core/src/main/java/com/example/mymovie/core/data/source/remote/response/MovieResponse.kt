@@ -1,5 +1,7 @@
 package com.example.mymovie.core.data.source.remote.response
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class MovieResponse(
@@ -18,9 +20,6 @@ data class MovieResponse(
 
 	@field:SerializedName("title")
 	val title: String? = null,
-
-	@field:SerializedName("genre_ids")
-	val genreIds: List<Int?>? = null,
 
 	@field:SerializedName("poster_path")
 	val posterPath: String? = null,
@@ -45,4 +44,51 @@ data class MovieResponse(
 
 	@field:SerializedName("vote_count")
 	val voteCount: Int? = null
-)
+) : Parcelable {
+	constructor(parcel: Parcel) : this(
+		parcel.readString(),
+		parcel.readString(),
+		parcel.readString(),
+		parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+		parcel.readString(),
+		parcel.readString(),
+		parcel.readString(),
+		parcel.readString(),
+		parcel.readValue(Double::class.java.classLoader) as? Double,
+		parcel.readValue(Float::class.java.classLoader) as? Float,
+		parcel.readValue(Int::class.java.classLoader) as? Int,
+		parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+		parcel.readValue(Int::class.java.classLoader) as? Int
+	) {
+	}
+
+	override fun writeToParcel(parcel: Parcel, flags: Int) {
+		parcel.writeString(overview)
+		parcel.writeString(originalLanguage)
+		parcel.writeString(originalTitle)
+		parcel.writeValue(video)
+		parcel.writeString(title)
+		parcel.writeString(posterPath)
+		parcel.writeString(backdropPath)
+		parcel.writeString(releaseDate)
+		parcel.writeValue(popularity)
+		parcel.writeValue(voteAverage)
+		parcel.writeValue(id)
+		parcel.writeValue(adult)
+		parcel.writeValue(voteCount)
+	}
+
+	override fun describeContents(): Int {
+		return 0
+	}
+
+	companion object CREATOR : Parcelable.Creator<MovieResponse> {
+		override fun createFromParcel(parcel: Parcel): MovieResponse {
+			return MovieResponse(parcel)
+		}
+
+		override fun newArray(size: Int): Array<MovieResponse?> {
+			return arrayOfNulls(size)
+		}
+	}
+}

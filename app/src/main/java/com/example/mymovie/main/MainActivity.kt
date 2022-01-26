@@ -1,5 +1,6 @@
 package com.example.mymovie.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mymovie.DetailMovieActivity
+import com.example.mymovie.DetailMovieActivity.Companion.EXTRA_MOVIE
 import com.example.mymovie.databinding.ActivityMainBinding
 import com.example.mymovie.util.ItemLoadingAdapter
 import com.kennyc.view.MultiStateView
@@ -31,7 +34,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi(){
-        movieAdapter = MovieAdapter()
+        movieAdapter = MovieAdapter{
+            val intent = Intent(this, DetailMovieActivity::class.java)
+            intent.putExtra(EXTRA_MOVIE, it)
+            startActivity(intent)
+        }
         binding.rvMovie.layoutManager = LinearLayoutManager(this)
         binding.rvMovie.setHasFixedSize(true)
 
@@ -58,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun observeView(){
         lifecycleScope.launchWhenCreated {
