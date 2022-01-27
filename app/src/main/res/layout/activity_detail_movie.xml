@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -16,7 +15,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailMovieActivity">
+        tools:context=".detail.DetailMovieActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBar"
@@ -60,19 +59,21 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvTitleDetail"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:text="@{detail.title}"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="32dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +86,10 @@
                     android:id="@+id/tvOverview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
+                    android:justificationMode="inter_word"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:text="@{detail.overview}"
                     android:textColor="@color/black"
@@ -97,8 +99,24 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvTitleDetail"
                     tools:text="jcndjcjnsnkdnkcnkldsnklnvklnsknkvnk" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:scrollbars="none"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_list_actor"/>
+                </LinearLayout>
+            </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

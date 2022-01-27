@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetailMovieActivity"
+        <activity android:name=".detail.DetailMovieActivity"
+            android:exported="true"
             android:theme="@style/Theme.Design.NoActionBar"/>
     </application>
 

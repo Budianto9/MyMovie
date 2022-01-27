@@ -1,7 +1,10 @@
 package com.example.mymovie.core.di
 
+import com.example.mymovie.core.data.repository.MovieDetailRepository
 import com.example.mymovie.core.data.repository.MovieRepository
+import com.example.mymovie.core.data.source.remote.datasource.DetailDataSource
 import com.example.mymovie.core.data.source.remote.network.Api
+import com.example.mymovie.core.domain.repository.IMovieDetailRepository
 import com.example.mymovie.core.domain.repository.IMovieRepository
 import com.example.mymovie.core.util.Constant
 import okhttp3.OkHttpClient
@@ -34,4 +37,6 @@ val networkModule = module {
 
 val repositoryModule = module {
     single<IMovieRepository> { MovieRepository(get()) }
+    single { DetailDataSource(get()) }
+    single<IMovieDetailRepository> { MovieDetailRepository(get()) }
 }
