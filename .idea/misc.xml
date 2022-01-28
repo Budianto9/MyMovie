@@ -6,12 +6,13 @@
         <entry key="..\:/ProjectIseng/app/src/main/res/drawable/ctr_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/ProjectIseng/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.19583333333333333" />
         <entry key="..\:/ProjectIseng/app/src/main/res/drawable/layout_bg.xml" value="0.19583333333333333" />
-        <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_detail_movie.xml" value="0.4466666666666667" />
+        <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_detail_movie.xml" value="0.16666666666666666" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/error_state_layout.xml" value="0.1796875" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/item_list_actor.xml" value="0.5" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/item_list_placeholder.xml" value="0.1796875" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/list_item_movie.xml" value="0.22" />
+        <entry key="..\:/ProjectIseng/app/src/main/res/layout/list_item_vertical_movie.xml" value="0.3333333333333333" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/loading_more.xml" value="0.3333333333333333" />
         <entry key="..\:/ProjectIseng/app/src/main/res/layout/movie_detail_app_bar.xml" value="0.1796875" />
         <entry key="..\:/ProjectIseng/app/src/main/res/xml/item_loading_motion.xml" value="0.1796875" />

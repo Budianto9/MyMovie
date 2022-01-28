@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mymovie.adapter.SimiliarAdapter
 import com.example.mymovie.core.data.Resource
 import com.example.mymovie.core.data.source.remote.response.MovieResponse
 import com.example.mymovie.databinding.ActivityDetailMovieBinding
@@ -13,6 +14,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailMovieBinding
     private lateinit var castAdapter: DetailMovieAdapter
+    private lateinit var similiarAdapter: SimiliarAdapter
     private val viewModel: DetailMovieViewModel by viewModel()
     private var movie: MovieResponse? = null
 
@@ -37,6 +39,12 @@ class DetailMovieActivity : AppCompatActivity() {
         binding.rvCast.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvCast.setHasFixedSize(true)
         binding.rvCast.adapter = castAdapter
+
+
+        similiarAdapter = SimiliarAdapter()
+        binding.rvSimiliar.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvSimiliar.setHasFixedSize(true)
+        binding.rvSimiliar.adapter = similiarAdapter
     }
 
     private fun initObserver(){
@@ -52,5 +60,18 @@ class DetailMovieActivity : AppCompatActivity() {
         }
 
         viewModel.getMovieCast(movie?.id!!)
+
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.similiar.collect{
+                when(it){
+                    is Resource.Loading -> ""
+                    is Resource.Success -> similiarAdapter.initNewItems(it.data!!)
+                    else -> ""
+                }
+            }
+        }
+
+        viewModel.getSimiliarMovie(movie?.id!!)
     }
 }

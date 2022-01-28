@@ -3,6 +3,7 @@ package com.example.mymovie.core.data.source.remote.datasource
 import com.example.mymovie.core.data.source.remote.network.Api
 import com.example.mymovie.core.data.source.remote.network.ApiResponse
 import com.example.mymovie.core.data.source.remote.response.Cast
+import com.example.mymovie.core.data.source.remote.response.MovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -18,6 +19,21 @@ class DetailDataSource(private val api: Api){
                     val body = response.body()
                     if (body != null) {
                         if (body.cast!!.isNotEmpty()) emit(ApiResponse.Success(body.cast)) else emit(ApiResponse.Empty)
+                    } else emit(ApiResponse.Error("Terjadi Kesalahan"))
+                } else emit(ApiResponse.Error("Terjadi Kesalahan"))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error("Terjadi Kesalahan"))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun getSimiliarMovie(movieId: Int, apiKey: String): Flow<ApiResponse<List<MovieResponse>>> =
+        flow {
+            try {
+                val response = api.getSimiliarMovie(movieId, apiKey)
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    if (body != null) {
+                        if (body.results.isNotEmpty()) emit(ApiResponse.Success(body.results)) else emit(ApiResponse.Empty)
                     } else emit(ApiResponse.Error("Terjadi Kesalahan"))
                 } else emit(ApiResponse.Error("Terjadi Kesalahan"))
             } catch (e: Exception) {

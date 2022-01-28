@@ -116,6 +116,33 @@
                         tools:itemCount="5"
                         tools:listitem="@layout/item_list_actor"/>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/similiar_movie"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSimiliar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:scrollbars="none"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/list_item_vertical_movie">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -130,7 +157,8 @@
             app:fabSize="normal"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="end|bottom"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:focusable="true" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

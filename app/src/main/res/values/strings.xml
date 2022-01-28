@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyMovie</string>
+    <string name="similiar_movie">Similiar Movie</string>
 </resources>

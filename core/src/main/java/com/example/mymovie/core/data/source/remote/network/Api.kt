@@ -21,4 +21,10 @@ interface Api {
         @Query("api_key") apiKey: String
     ) : Response<CreditsListResponse>
 
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimiliarMovie(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ) : Response<MovieListResponse>
+
 }
