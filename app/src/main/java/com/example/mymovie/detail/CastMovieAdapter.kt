@@ -7,7 +7,7 @@ import com.example.mymovie.adapter.BaseAdapter
 import com.example.mymovie.core.data.source.remote.response.Cast
 import com.example.mymovie.databinding.ItemListActorBinding
 
-class DetailMovieAdapter : BaseAdapter<DetailMovieAdapter.CastViewHolder, Cast>() {
+class CastMovieAdapter : BaseAdapter<CastMovieAdapter.CastViewHolder, Cast>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CastViewHolder {
         val inflater = LayoutInflater.from(parent.context)

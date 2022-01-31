@@ -13,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DetailMovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailMovieBinding
-    private lateinit var castAdapter: DetailMovieAdapter
+    private lateinit var castAdapter: CastMovieAdapter
     private lateinit var similiarAdapter: SimiliarAdapter
     private val viewModel: DetailMovieViewModel by viewModel()
     private var movie: MovieResponse? = null
@@ -35,7 +35,7 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun initUI(){
-        castAdapter = DetailMovieAdapter()
+        castAdapter = CastMovieAdapter()
         binding.rvCast.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvCast.setHasFixedSize(true)
         binding.rvCast.adapter = castAdapter
