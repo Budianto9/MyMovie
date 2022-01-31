@@ -1,3 +1,4 @@
 # MyMovie
 started project
-<img src="https://media3.giphy.com/media/Pk9JUZe33OyyE9H937/giphy.gif"/>
+
+![OMD, that smile...](https://media.giphy.com/media/6Qk2JijPx2RYkzJ0O5/giphy.gif){loop=""}
