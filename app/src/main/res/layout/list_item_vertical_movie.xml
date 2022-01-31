@@ -16,35 +16,37 @@
         android:background="@color/transparent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:elevation="8dp"
         app:cardCornerRadius="8dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/transparent">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView2"
                 imgUrl="@{similiar.posterPath}"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
                 android:background="@color/colorPrimaryGray"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/black"
+                android:lines="1"
+                android:textColor="@color/white"
+                android:text="@{similiar.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +61,8 @@
                 android:layout_marginBottom="8dp"
                 android:rating="@{similiar.voteAverage / (float)2}"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
