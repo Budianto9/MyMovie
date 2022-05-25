@@ -52,7 +52,7 @@ class DetailMovieActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.cast.collect{
                 when(it){
-                    is Resource.Loading -> ""
+                    is Resource.Loading -> "" //not implement for handle loading
                     is Resource.Success -> castAdapter.initNewItems(it.data!!)
                     else -> ""
                 }
@@ -65,7 +65,7 @@ class DetailMovieActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.similiar.collect{
                 when(it){
-                    is Resource.Loading -> ""
+                    is Resource.Loading -> "" //not implement for handle loading
                     is Resource.Success -> similiarAdapter.initNewItems(it.data!!)
                     else -> ""
                 }

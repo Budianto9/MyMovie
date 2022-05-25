@@ -154,7 +154,7 @@
             android:backgroundTint="@color/purple_500"
             android:baselineAlignBottom="true"
             android:clickable="true"
-            android:src="@drawable/ic_baseline_favorite_border_24"
+            android:src="@drawable/ic_favorite_inactive"
             app:fabSize="normal"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="end|bottom"

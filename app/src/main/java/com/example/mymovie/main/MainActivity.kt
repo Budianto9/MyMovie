@@ -1,75 +1,49 @@
 package com.example.mymovie.main
 
-import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mymovie.detail.DetailMovieActivity
-import com.example.mymovie.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.mymovie.R
 import com.example.mymovie.databinding.ActivityMainBinding
-import com.example.mymovie.util.ItemLoadingAdapter
-import com.kennyc.view.MultiStateView
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChanged
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var movieAdapter: MovieAdapter
 
-    private val viewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initUi()
-        observeView()
-    }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "MovieDB"
 
-    private fun initUi(){
-        movieAdapter = MovieAdapter{
-            val intent = Intent(this, DetailMovieActivity::class.java)
-            intent.putExtra(EXTRA_MOVIE, it)
-            startActivity(intent)
-        }
-        binding.rvMovie.layoutManager = LinearLayoutManager(this)
-        binding.rvMovie.setHasFixedSize(true)
+        val navView: BottomNavigationView = binding.navView
 
-        val footerLoadingAdapter = ItemLoadingAdapter{
-            movieAdapter.retry()
-        }
-        binding.rvMovie.adapter = movieAdapter.withLoadStateFooter(footerLoadingAdapter)
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_popular, R.id.navigation_favorite, R.id.navigation_location
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
-        lifecycleScope.launchWhenCreated {
-            movieAdapter.loadStateFlow.collectLatest { state ->
-                when {
-                    state.source.refresh is LoadState.Loading -> {
-                        binding.layoutState.viewState = MultiStateView.ViewState.LOADING
-                        binding.proggerBarShimmer.visibility = View.VISIBLE
-                    }
-                    movieAdapter.itemCount < 1 -> {
-                        binding.layoutState.viewState = MultiStateView.ViewState.ERROR
-                    }
-                    else -> {
-                        binding.layoutState.viewState = MultiStateView.ViewState.CONTENT
-                        binding.proggerBarShimmer.visibility = View.GONE
-                    }
-                }
-            }
-        }
     }
 
 
-    private fun observeView(){
-        lifecycleScope.launchWhenCreated {
-            viewModel.getMoviePopular().distinctUntilChanged().collectLatest {
-                movieAdapter.submitData(it)
-            }
-        }
-    }
 }

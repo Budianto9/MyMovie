@@ -13,4 +13,5 @@
     <color name="colorPrimaryGray">#9B9B9B</color>
     <color name="colorPrimaryBlue">#0B1F8F</color>
     <color name="colorPrimaryGreen">#218838</color>
+    <color name="colorPrimaryBlack">#202123</color>
 </resources>

@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MyMovie</string>
     <string name="similiar_movie">Similiar Movie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

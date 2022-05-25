@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/nav_home"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/navigation_popular"
+        android:icon="@drawable/nav_popular"
+        android:title="Popular" />
+
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/nav_favorite"
+        android:title="Favorite" />
+
+    <item
+        android:id="@+id/navigation_location"
+        android:icon="@drawable/nav_location"
+        android:title="Location" />
+</menu>
