@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/transparent"
     android:fitsSystemWindows="true"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:liftOnScroll="true">
 
 
@@ -23,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageView
                 android:id="@+id/imgDetail"
                 android:layout_width="match_parent"
@@ -33,7 +31,8 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="@color/white"
-                android:padding="0dp" />
+                android:padding="0dp"
+                tools:src="@drawable/ic_launcher_background" />
         </RelativeLayout>
 
         <com.google.android.material.appbar.MaterialToolbar
