@@ -16,10 +16,12 @@
         android:id="@+id/navigation_popular"
         android:name="com.example.mymovie.ui.popular.PopularFragment"
         tools:layout="@layout/fragment_popular" />
+
     <fragment
         android:id="@+id/navigation_favorite"
         android:name="com.example.mymovie.ui.favorite.FavoriteFragment"
         tools:layout="@layout/fragment_favorite" />
+
     <fragment
         android:id="@+id/navigation_location"
         android:name="com.example.mymovie.ui.location.LocationFragment"

@@ -16,8 +16,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyMovie"
-        android:usesCleartextTraffic="true">
+        android:theme="@style/Theme.MyMovie">
         <activity android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
